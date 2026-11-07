@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chuyến Bay (Flights) — Vietjet Travel</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div>
+        <span class="top-bar-badge">CHUYẾN BAY</span>
+        Lọc theo giá vé, loại hành trình, hãng hàng không, giờ cất cánh &amp; hạng dịch vụ
+      </div>
+      <div>
+        ☎ Tổng đài: <strong>1900 1886</strong> • ✉ Hỗ trợ: <strong>minhkhoithan@gmail.com</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="images/2aOboRAvPCnNF8ux8l12JJoKC6uw9yMZkM5dUYs4.jpg" alt="Vietjet Logo" />
+        <div class="brand-text">
+          <span class="brand-title">VIETJET</span>
+          <span class="brand-subtitle">Flights &amp; Holidays</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">🏠 Trang Chủ</a>
+        <a href="flights.html" class="nav-link active">✈ Chuyến Bay</a>
+        <a href="tours.html" class="nav-link">🌴 Tour Du Lịch</a>
+        <a href="cart.html" class="cart-btn">
+          🛒 Giỏ Hàng
+          <span class="cart-count-badge">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>✈ Danh Sách Chuyến Bay (Flights)</h1>
+      <p>Click chọn chuyến bay bất kỳ ở cột bên phải để xem Chi Tiết Chuyến Bay &amp; chọn hạng vé</p>
+    </div>
+  </section>
+
+  <!-- MAIN 2-COLUMN CONTENT -->
+  <main class="container">
+    <div class="listing-layout">
+      <!-- BÊN TRÁI: BỘ LỌC CHUYẾN BAY -->
+      <aside id="flights-filter-sidebar" class="filter-sidebar">
+        <div class="filter-header">
+          <h3>🌪 Bộ Lọc Chuyến Bay</h3>
+          <button type="button" id="btn-reset-flight-filters" class="btn-reset-filter">Đặt lại</button>
+        </div>
+
+        <!-- 0. Điểm đi / Điểm đến -->
+        <div class="filter-group">
+          <div class="filter-group-title">📍 Hành Trình</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <select id="filter-origin" class="form-control" style="padding:8px 10px; font-size:0.86rem;">
+              <option value="">Tất cả điểm xuất phát</option>
+              <option value="SGN">TP. Hồ Chí Minh (SGN)</option>
+              <option value="HAN">Hà Nội (HAN)</option>
+              <option value="DAD">Đà Nẵng (DAD)</option>
+            </select>
+            <select id="filter-destination" class="form-control" style="padding:8px 10px; font-size:0.86rem;">
+              <option value="">Tất cả điểm đến</option>
+              <option value="HAN">Hà Nội (HAN)</option>
+              <option value="DAD">Đà Nẵng (DAD)</option>
+              <option value="PQC">Phú Quốc (PQC)</option>
+              <option value="CXR">Nha Trang (CXR)</option>
+              <option value="SIN">Singapore (SIN)</option>
+              <option value="BKK">Bangkok (BKK)</option>
+              <option value="ICN">Seoul (ICN)</option>
+              <option value="NRT">Tokyo (NRT)</option>
+              <option value="DPS">Bali (DPS)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 1. Filter giá vé tăng/giảm dần -->
+        <div class="filter-group">
+          <div class="filter-group-title">💰 Sắp Xếp Giá Vé</div>
+          <div class="filter-options-list">
+            <label class="filter-check-label">
+              <input type="radio" name="filter_sort" value="price_asc" checked />
+              <span>Giá vé tăng dần (Thấp ➔ Cao)</span>
+            </label>
+            <label class="filter-check-label">
+              <input type="radio" name="filter_sort" value="price_desc" />
+              <span>Giá vé giảm dần (Cao ➔ Thấp)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 2. Filter loại vé: vé khứ hồi, vé một chiều, bay thẳng, nhiều thành phố -->
+        <div class="filter-group">
+          <div class="filter-group-title">🎫 Loại Vé &amp; Đường Bay</div>
+          <div class="filter-options-list">
+            <label class="filter-check-label">
+              <input type="checkbox" name="filter_trip_type" value="round-trip" />
+              <span>Vé khứ hồi</span>
+            </label>
+            <label class="filter-check-label">
+              <input type="checkbox" name="filter_trip_type" value="one-way" />
+              <span>Vé một chiều</span>
+            </label>
+            <label class="filter-check-label">
+              <input type="checkbox" name="filter_trip_type" value="direct" />
+              <span>Bay thẳng</span>
+            </label>
+            <label class="filter-check-label">
+              <input type="checkbox" name="filter_trip_type" value="multi-city" />
+              <span>Nhiều thành phố</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 3. Filter các hãng hàng không -->
+        <div class="filter-group">
+          <div class="filter-group-title">🏢 Các Hãng Hàng Không</div>
+          <div id="filter-airlines-list" class="filter-options-list">
+            <!-- Nạp từ SQLite (db.db) -->
+          </div>
+        </div>
+
+        <!-- 4. Filter thời gian cất cánh (giờ) -->
+        <div class="filter-group">
+          <div class="filter-group-title">🕒 Thời Gian Cất Cánh (Giờ)</div>
+          <div class="filter-options-list">
+            <label class="filter-check-label">
+              <input type="checkbox" name="filter_time" value="early_morning" />
+              <span>Sáng sớm (00:00 - 06:00)</span>
+            </label>
+            <label class="filter-check-label">
+              <input type="checkbox" name="filter_time" value="morning" />
+              <span>Buổi sáng (06:00 - 12:00)</span>
+            </label>
+            <label class="filter-check-label">
+              <input type="checkbox" name="filter_time" value="afternoon" />
+              <span>Buổi chiều (12:00 - 18:00)</span>
+            </label>
+            <label class="filter-check-label">
+              <input type="checkbox" name="filter_time" value="evening" />
+              <span>Buổi tối (18:00 - 24:00)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 5. Filter hạng dịch vụ (Phổ thông, Thương gia) -->
+        <div class="filter-group">
+          <div class="filter-group-title">👑 Hạng Dịch Vụ</div>
+          <div class="filter-options-list">
+            <label class="filter-check-label">
+              <input type="radio" name="filter_class" value="all" checked />
+              <span>Hạng Phổ Thông (Economy)</span>
+            </label>
+            <label class="filter-check-label">
+              <input type="radio" name="filter_class" value="business" />
+              <span>Hạng Thương Gia (Business / SkyBoss)</span>
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- BÊN PHẢI: DANH SÁCH CÁC CHUYẾN BAY -->
+      <section>
+        <div class="results-topbar">
+          <div class="results-count">
+            Tìm thấy <span id="flights-count-num">0</span> chuyến bay từ cơ sở dữ liệu SQLite (<strong>db.db</strong>)
+          </div>
+          <div style="font-size:0.85rem; color:var(--text-muted);">
+            💡 Click vào chuyến bay để xem chi tiết &amp; chọn hạng vé
+          </div>
+        </div>
+
+        <div id="flights-results-list" class="flight-list">
+          <!-- Nạp từ SQLite (db.db) bởi js/flights.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        © 2026 Vietjet Travel Website • Dữ liệu truy xuất trực tiếp từ SQLite (db.db).
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+  <script src="SQLite/vietjet_db_binary.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/flights.js"></script>
+</body>
+</html>

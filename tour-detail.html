@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi Tiết Tour (Tour Detail) — Vietjet Travel</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div>
+        <span class="top-bar-badge">CHI TIẾT TOUR</span>
+        Thông tin chuyến bay, loại máy bay (Boeing, Airbus...) &amp; Lịch trình chuyến đi chi tiết
+      </div>
+      <div>
+        ☎ Tổng đài: <strong>1900 1886</strong> • ✉ Hỗ trợ: <strong>minhkhoithan@gmail.com</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="images/2aOboRAvPCnNF8ux8l12JJoKC6uw9yMZkM5dUYs4.jpg" alt="Vietjet Logo" />
+        <div class="brand-text">
+          <span class="brand-title">VIETJET</span>
+          <span class="brand-subtitle">Flights &amp; Holidays</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">🏠 Trang Chủ</a>
+        <a href="flights.html" class="nav-link">✈ Chuyến Bay</a>
+        <a href="tours.html" class="nav-link active">🌴 Tour Du Lịch</a>
+        <a href="cart.html" class="cart-btn">
+          🛒 Giỏ Hàng
+          <span class="cart-count-badge">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>🗺 Chi Tiết Tour Du Lịch</h1>
+      <p>Điểm đi, điểm đến, thời gian bay, hãng bay, loại máy bay (Boeing, Airbus...) &amp; Lịch trình chuyến đi</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="container detail-container">
+    <div id="tour-detail-content">
+      <!-- Nạp từ SQLite (db.db) bởi js/tour-detail.js -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        © 2026 Vietjet Travel Website • Dữ liệu truy xuất trực tiếp từ SQLite (db.db).
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+  <script src="SQLite/vietjet_db_binary.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/tour-detail.js"></script>
+</body>
+</html>
